@@ -2,7 +2,7 @@
 
 <project name="Motemote" default="build">
  <target name="build"
-   depends="prepare,lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpdoc,phpunit,phpcb"/>
+   depends="prepare,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpdoc,phpunit,phpcb"/>
 
  <target name="build-parallel"
    depends="prepare,tools-parallel,phpunit,phpcb"/>
