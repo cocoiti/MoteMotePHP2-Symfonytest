@@ -26,6 +26,9 @@
    overwrite="yes"
    file="${basedir}/app/config/parameters.ini.test"
    tofile="${basedir}/app/config/parameters.ini.test"/>
+  <exec executable="php">
+   <arg line="${basedir}/bin/vonders install"/>
+  </exec>
  </target>
  <target name="clean" description="Cleanup build artifacts">
   <delete dir="${basedir}/build/api"/>
