@@ -2,7 +2,7 @@
 
 <project name="Motemote" default="build">
  <target name="build"
-   depends="prepare,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpdoc,phpunit,phpcb"/>
+   depends="config,prepare,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpdoc,phpunit,phpcb"/>
 
  <target name="build-parallel"
    depends="prepare,tools-parallel,phpunit,phpcb"/>
@@ -20,7 +20,16 @@
    <antcall target="phpdoc"/>
   </parallel>
  </target>
-
+ 
+ <target name="config" description="Conifg file">
+  <copy
+   overwrite="yes"
+   file="${basedir}/app/config/parameters.ini.test"
+   tofile="${basedir}/app/config/parameters.ini"/>
+  <exec executable="php">
+   <arg line="${basedir}/bin/vendors install"/>
+  </exec>
+ </target>
  <target name="clean" description="Cleanup build artifacts">
   <delete dir="${basedir}/build/api"/>
   <delete dir="${basedir}/build/code-browser"/>
@@ -36,7 +45,6 @@
   <mkdir dir="${basedir}/build/coverage"/>
   <mkdir dir="${basedir}/build/logs"/>
   <mkdir dir="${basedir}/build/pdepend"/>
-  <copy file="${basedir}/app/config/parameters.ini.test" tofile="${basedir}/app/config/parameters.ini.test" />
  </target>
 
  <target name="phploc" description="Measure project size using PHPLOC">
@@ -115,7 +123,7 @@
 
  <target name="phpunit" description="Run unit tests with PHPUnit">
   <exec executable="phpunit" failonerror="true">
-   <arg line="-c app/"/>
+   <arg line="-c build/"/>
   </exec>
  </target>
 
