@@ -36,6 +36,7 @@
   <mkdir dir="${basedir}/build/coverage"/>
   <mkdir dir="${basedir}/build/logs"/>
   <mkdir dir="${basedir}/build/pdepend"/>
+  <copy file="${basedir}/app/config/parameters.ini.test" tofile="${basedir}/app/config/parameters.ini.test" />
  </target>
 
  <target name="phploc" description="Measure project size using PHPLOC">
