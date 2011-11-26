@@ -25,7 +25,7 @@
   <copy
    overwrite="yes"
    file="${basedir}/app/config/parameters.ini.test"
-   tofile="${basedir}/app/config/parameters.ini.test"/>
+   tofile="${basedir}/app/config/parameters.ini"/>
   <exec executable="php">
    <arg line="${basedir}/bin/vendors install"/>
   </exec>
