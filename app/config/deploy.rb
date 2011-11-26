@@ -1,6 +1,7 @@
 set :stages, %w(production staging)
 set :stage_dir, "app/config/deploy"
 require "capistrano/ext/multistage"
+require 'capistrano/gitflow'
 
 
 set :use_sudo, true
