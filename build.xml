@@ -27,7 +27,7 @@
    file="${basedir}/app/config/parameters.ini.test"
    tofile="${basedir}/app/config/parameters.ini.test"/>
   <exec executable="php">
-   <arg line="${basedir}/bin/vonders install"/>
+   <arg line="${basedir}/bin/vendors install"/>
   </exec>
  </target>
  <target name="clean" description="Cleanup build artifacts">
